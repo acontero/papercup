@@ -35,6 +35,30 @@ class TweetsController < ApplicationController
     #   puts t.text
     # end
 
+    require "flickraw"
+
+    FlickRaw.api_key="49be9cfc544528589df1dfa4d7878c6b"
+    FlickRaw.shared_secret="737b50330524d349"
+
+    @list  = flickr.photos.getRecent
+
+    id     = @list[0].id
+    secret = @list[0].secret
+    info = flickr.photos.getInfo :photo_id => id, :secret => secret
+    
+    url=params[:url]
+    #info = flickr.photos.getInfo(:photo_id =>url.split(“/”).last)
+    @embed_photo={}
+    @embed_photo['flickr']=FlickRaw.url(info)
+    #@embed_photo["flickr"]=FlickRaw.url(info) rescue FlickRaw.url_o(info) rescue FlickRaw.url_b(info)
+
+    puts info.title           # => "PICT986"
+    puts info.dates.taken     # => "2006-07-06 15:16:18"
+
+    sizes = flickr.photos.getSizes :photo_id => id
+
+    original = sizes.find {|s| s.label == 'Original' }
+    puts original.width       # => "800" -- may fail if they have no original marked image
   
   end
 
