@@ -10,6 +10,7 @@ class TweetsController < ApplicationController
 
     # Certain methods require authentication. To get your Twitter OAuth credentials,
     # register an app at http://dev.twitter.com/apps
+
     #client = Twitter::Streaming::Client.new do |config|
     client = Twitter::REST::Client.new do |config|
       config.consumer_key = '390u60XsK2NT1HhFTBfa7g'
@@ -18,24 +19,12 @@ class TweetsController < ApplicationController
       config.oauth_token_secret = 'xIxKyk6SRWnGct4frB0tIKBuIKNQrb6VBLZT44aK3LuBO'
     end
 
-    # a = []
-    # topics = ["coffee", "tea"]
-    # client.filter(:track => topics.join(",")) do |object|
-    #   #puts object.text if object.is_a?(Twitter::Tweet)
-    #   a <<  object.text if object.is_a?(Twitter::Tweet)
-    # end
-
     @arrayOfTweets = []
-    client.search("today", :count => 20, :result_type => "recent").take(20).collect do |object|
     # client.search("to:justinbieber marry me", :count => 3, :result_type => "recent").take(3).collect do |object|
-    #client.search("today", :count => 3, :result_type => "recent").take(3).collect do |object|
+    client.search("life", :count => 20, :result_type => "recent").take(20).collect do |object|
       @arrayOfTweets <<  object.text if object.is_a?(Twitter::Tweet)  
     end
 
-    # search = Twitter::REST::API::Search
-    # search("new year resolution", :count => 3) do |t| 
-    #   puts t.text
-    # end
 
     require "flickraw"
 
@@ -49,10 +38,8 @@ class TweetsController < ApplicationController
     info = flickr.photos.getInfo :photo_id => id, :secret => secret
     
     url=params[:url]
-    #info = flickr.photos.getInfo(:photo_id =>url.split(“/”).last)
     @embed_photo={}
     @embed_photo['flickr']=FlickRaw.url(info)
-    #@embed_photo["flickr"]=FlickRaw.url(info) rescue FlickRaw.url_o(info) rescue FlickRaw.url_b(info)
 
     puts info.title           # => "PICT986"
     puts info.dates.taken     # => "2006-07-06 15:16:18"
