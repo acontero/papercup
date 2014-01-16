@@ -60,6 +60,11 @@ class TweetsController < ApplicationController
     original = sizes.find {|s| s.label == 'Original' }
     puts original.width       # => "800" -- may fail if they have no original marked image
   
+
+    require "ruby_reddit_api"
+    r = Reddit::Api.new "acontero", "lalala"
+    @results = r.browse "ruby"
+    
   end
 
   # GET /tweets/1

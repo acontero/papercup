@@ -20,6 +20,12 @@
       </tr>
     <% end %>
 
+    <% @results.each do |article| %>
+      <tr>
+        <td><%= article.title %></td>
+      </tr>
+    <% end %>
+
     <embed src=<%=@embed_photo["flickr"]%> width=”375″ height=”225″ /><br/>
     
   </tbody>

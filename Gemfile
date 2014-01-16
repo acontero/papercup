@@ -36,6 +36,10 @@ gem 'twitter'
 
 gem 'flickraw'
 
+gem "rest-client", "~> 1.6.7"
+
+gem "ruby_reddit_api", "~> 0.2.6"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
