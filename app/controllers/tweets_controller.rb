@@ -26,7 +26,9 @@ class TweetsController < ApplicationController
     # end
 
     @arrayOfTweets = []
-    client.search("to:justinbieber marry me", :count => 3, :result_type => "recent").take(3).collect do |object|
+    client.search("today", :count => 20, :result_type => "recent").take(20).collect do |object|
+    # client.search("to:justinbieber marry me", :count => 3, :result_type => "recent").take(3).collect do |object|
+    #client.search("today", :count => 3, :result_type => "recent").take(3).collect do |object|
       @arrayOfTweets <<  object.text if object.is_a?(Twitter::Tweet)  
     end
 
@@ -58,12 +60,12 @@ class TweetsController < ApplicationController
     sizes = flickr.photos.getSizes :photo_id => id
 
     original = sizes.find {|s| s.label == 'Original' }
-    puts original.width       # => "800" -- may fail if they have no original marked image
+    #puts original.width       # => "800" -- may fail if they have no original marked image
   
 
     require "ruby_reddit_api"
     r = Reddit::Api.new "acontero", "lalala"
-    @results = r.browse "ruby"
+    @results = r.browse "funny"
     
   end
 

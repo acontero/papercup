@@ -1,9 +1,18 @@
-<h1>Listing tweets</h1>
+<h1>Paper Cup</h1>
+<h3>(A social-media-derived writing inspiration generator)</h3>
+
+
+<h2>From Flickr</h2>
+<embed src=<%=@embed_photo["flickr"]%> width=”375″ height=”225″ /><br/>
+
+<br>
+
+<h2>From Twitter</h2>
 
 <table>
   <thead>
     <tr>
-      <th>Tweet content</th>
+      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -11,28 +20,37 @@
   </thead>
 
   <tbody>
-    <% @arrayOfTweets.each do |tweet| %>
+    <% 3.times do |i| %>
       <tr>
-        <td><%= tweet %></td>
-        <td><%= link_to 'Show', tweet %></td>
-        <td><%= link_to 'Edit', edit_tweet_path(tweet) %></td>
-        <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= @arrayOfTweets[i] %></td>
       </tr>
     <% end %>
-
-    <% @results.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-      </tr>
-    <% end %>
-
-    <embed src=<%=@embed_photo["flickr"]%> width=”375″ height=”225″ /><br/>
-    
   </tbody>
 </table>
 
-<br>
+<h2>From Reddit</h2>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
 
-<%= link_to 'New Tweet', new_tweet_path %>
+  <tbody>
+    <% 3.times do |i| %>
+      <tr>
+        <td><%= @results[i].title %></td>
+      </tr>
+    <% end %>  
+  </tbody>
+</table>
+
+<h2>Now get to writing!</h2>
+<br>
+<!-- 
+<%= link_to 'New Tweet', new_tweet_path %> -->
 
 
