@@ -48,7 +48,13 @@ class PagesController < ActionController::Base
 
     require "ruby_reddit_api"
     r = Reddit::Api.new "acontero", "lalala"
-    @results = r.browse "funny"
-    
+    @results = r.browse "funny"  
   end
+
+  def refresh_image
+    redirect_to root_path
+  end
+
+
+
 end

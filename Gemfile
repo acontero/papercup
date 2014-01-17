@@ -40,7 +40,7 @@ gem "rest-client", "~> 1.6.7"
 
 gem "ruby_reddit_api", "~> 0.2.6"
 
-gem 'devise'
+gem 'devise', "~> 3.2.1"
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'

@@ -4,8 +4,9 @@ Papercup::Application.routes.draw do
 
   root :to => "pages#index"
 
-  # match '/index' => get 'pages#index'
   get "/index", controller:"pages",action: :index, as: :index
+  get "/refresh_image", controller: "pages", action: :refresh_image, as: :refresh_image
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
