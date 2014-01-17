@@ -1,0 +1,42 @@
+<%- model_class = Prompt -%>
+<div class="page-header">
+  <h1>Ideas Log</h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:notes) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @prompts.each do |prompt| %>
+      <tr>
+        <td><%= prompt.name %></td>
+        <td><%= prompt.notes %></td>
+        <td><%=l prompt.created_at %></td>
+         <td>
+          
+          <%= link_to "Show", prompt_path(prompt), :class => 'btn btn-small btn-info active'%>
+         
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_prompt_path(prompt), :class => 'btn btn-small btn-warning active' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      prompt_path(prompt),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-small btn-danger active' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_prompt_path,
+            :class => 'btn btn-primary' %>
+
+<br>
+
