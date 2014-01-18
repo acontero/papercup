@@ -1,6 +1,6 @@
 class PromptsController < ApplicationController
   before_action :set_prompt, only: [:show, :edit, :update, :destroy]
-  skip_before_filter  :authenticate_user!, only: [:index]
+  # skip_before_filter  :authenticate_user!, only: [:index]
   
   # GET /prompts
   # GET /prompts.json
@@ -26,7 +26,8 @@ class PromptsController < ApplicationController
   # POST /prompts.json
   def create
     @prompt = Prompt.new(prompt_params)
-
+    # @prompt.user = current_user
+    
     respond_to do |format|
       if @prompt.save
         format.html { redirect_to @prompt, notice: 'Prompt was successfully created.' }

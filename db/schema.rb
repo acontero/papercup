@@ -15,10 +15,13 @@ ActiveRecord::Schema.define(version: 20140116231052) do
 
   create_table "prompts", force: true do |t|
     t.string   "name"
+    t.integer  "user_id_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "notes"
   end
+
+  add_index "prompts", ["user_id_id"], name: "index_prompts_on_user_id_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

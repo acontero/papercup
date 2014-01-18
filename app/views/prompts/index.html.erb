@@ -7,6 +7,7 @@
     <tr>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:notes) %></th>
+      <!-- <th><%= model_class.human_attribute_name(:user) %></th> -->
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= prompt.name %></td>
         <td><%= prompt.notes %></td>
+       <!--  <td><%= link_to prompts.user.email if prompt.user.present?%></td> -->
         <td><%=l prompt.created_at %></td>
          <td>
           
@@ -34,9 +36,9 @@
   </tbody>
 </table>
 
+
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_prompt_path,
-            :class => 'btn btn-primary' %>
-
+            :class => 'btn btn-primary active' %>
 <br>
 
