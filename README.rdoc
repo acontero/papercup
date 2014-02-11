@@ -1,28 +1,13 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Paper Cup is a simple first attempt at creating a writing prompt generator that obtains socially-generated content for the purpose of inspiring writers suffering from writer's block.
 
-Things you may want to cover:
+This project was my final project for the Ruby on Rails portion of the CUNY Tech Apprenticeship Program (TAP) I'm involved in.  I used 3 API's for this project, Flickr, Twitter, and Reddit.  It's a basic web app.  I'd still like to make a few improvements to it including:
 
-* Ruby version
+1) adding text fields to the main prompt generator page so that the user could enter their own query word and I could use that to query the Twitter API and/or Reddit API to make it more dynamic and to make the generated material stay fresh and interesting
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+2) fix the Reddit content so that it refreshes each time you refresh the page
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+
