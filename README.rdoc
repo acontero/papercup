@@ -1,6 +1,6 @@
 == README
 
-Paper Cup is a simple first attempt at creating a writing prompt generator that obtains socially-generated content for the purpose of inspiring writers suffering from writer's block.
+Paper Cup is a simple first attempt at creating a writing prompt generator that obtains social-media-generated content for the purpose of inspiring writers suffering from writer's block.
 
 This project was my final project for the Ruby on Rails portion of the CUNY Tech Apprenticeship Program (TAP) I'm involved in.  I used 3 API's for this project, Flickr, Twitter, and Reddit.  It's a basic web app.  I'd still like to make a few improvements to it including:
 
